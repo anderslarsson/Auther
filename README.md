@@ -1,4 +1,4 @@
-[![Build Status](https://secure.travis-ci.org/anderslarsson/auther.png)](http://travis-ci.org/anderslarsson/auther)
+[![Build Status](https://secure.travis-ci.org/anderslarsson/Auther.png)](http://travis-ci.org/anderslarsson/Auther)
 
 
 # Auther
