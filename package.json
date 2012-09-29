@@ -1,0 +1,24 @@
+{
+  "author": "Anders Larsson <anders.larsson.funkis@gmail.com>",
+  "name": "auther",
+  "description": "(Auth)entification and (Auth)orization middleware for express.js",
+  "version": "0.0.1",
+  "homepage": "https://github.com/anderslarsson/auther",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com//anderslarsson/auther.git"
+  },
+  "main": "index",
+  "scripts": {
+    "test": "mocha --reporter spec ./test/auther.test.js"
+  },
+  "engines": {
+    "node": "0.8.x"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "should": "*", 
+    "mocha" : "*"
+  }
+}
