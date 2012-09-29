@@ -18,6 +18,7 @@
   "dependencies": {
   },
   "devDependencies": {
+	"express": "3.0.0rc4", 
     "should": "*", 
     "mocha" : "*"
   }

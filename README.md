@@ -2,8 +2,12 @@
 
 Simple (Auth)entification and (Auth)orization middleware for express.js. 
 
-	- Validates access to resources based on id.
-	- Uses express route parameters to map to resources.  
+Validates access to resources based on express route parameters.
+
+Sets up routes for login view (/session/new), authentication (/session/create) and logout (/session/destroy).
+
+After authentication all accessible resources are loaded for user (load_role).
+
 
 ## installation
 
@@ -24,6 +28,8 @@ Simple (Auth)entification and (Auth)orization middleware for express.js.
 	...
 
 	auther.init(app, {
+		loginView: 'login', // Default is jade  
+		afterLogoutRoute: '/'
 		authenticate: function(user, pwd, cb) {
 			User.findOne({email: user}, function(err, user) {
 
@@ -44,6 +50,26 @@ Simple (Auth)entification and (Auth)orization middleware for express.js.
 			})
 		}	
 	})
+
+## Authentication
+
+
+
+## Authorization	
+
+
+	
+## View helpers
+
+In jade view the following helper functions are available. They are provided by the auther#helpers middleware. 
+
+- isLoggedIn()
+- username()
+
+### Todo
+
+- role()
+
 
 	
 
