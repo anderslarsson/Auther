@@ -1,3 +1,6 @@
+[![Build Status](https://secure.travis-ci.org/anderslarsson/auther.png)](http://travis-ci.org/anderslarsson/auther)
+
+
 # Auther
 
 Simple (Auth)entification and (Auth)orization middleware for express.js. 
