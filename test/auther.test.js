@@ -28,10 +28,17 @@ describe('Auther test suite', function() {
 				
 		auther.init(app, {
 			authenticate: function(username, password, cb) {
-				cb(null, true, { role: 'myrole', data: 23})
+				if (username == 'sysadmin') {
+					cb(null, true, { role: 'sysadmin', isSuperUser: true })
+				} else {					
+					cb(null, true, { role: 'myrole', data: 23})
+				}
 			}, 
 			load_myrole: function(user, cb) {
 				user.AOHash['id'] = resources
+				cb(null)
+			}, 
+			load_sysadmin: function(user, cb) {
 				cb(null)
 			}, 
 			indexRoute: {
@@ -149,6 +156,28 @@ describe('Auther test suite', function() {
 				browser.success.should.be.ok
 				browser.text('h1').should.eql('otherresource')										
 				done()
+			})
+		})
+	})
+	
+	
+	describe('When logged in as a superuser', function() {
+		it('we should be able to navigate to all resources', function(done) {
+			browser.visit(base + '/session/destroy', function(err) {
+				browser.success.should.be.ok
+
+				browser.visit(base + '/otherresource/999', function(err) {
+					browser.success.should.be.ok	
+				  	browser.
+				    	fill("username", "sysadmin").
+				    	fill("password", "password").
+				    	pressButton("login", function() {
+							browser.success.should.be.ok
+							browser.text('h1').should.eql('otherresource')
+							done()						
+						})
+
+				})
 			})
 		})
 	})

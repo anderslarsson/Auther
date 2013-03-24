@@ -72,7 +72,3 @@ In jade view the following helper functions are available. They are provided by 
 ### Todo
 
 - role()
-
-
-	
-

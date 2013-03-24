@@ -18,9 +18,10 @@
   "dependencies": {
   },
   "devDependencies": {
-	"express": "3.x", 
-	"zombie": "1.4.1", 
+  	"express": "3.x", 
+  	"zombie": "1.4.1", 
     "should": "*", 
-    "mocha" : "*"
+    "mocha" : "*", 
+    "jade" : "*"
   }
 }
