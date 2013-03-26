@@ -43,7 +43,7 @@ describe('Auther test suite', function() {
 			}, 
 			indexRoute: {
 				route: '/app', 
-				myrole: '/myrole_start'
+				myrole: '/otherresource/:id'
 			}, 
 			afterLogoutRoute: '/afterlogout'
 		})	
@@ -177,6 +177,28 @@ describe('Auther test suite', function() {
 							done()						
 						})
 
+				})
+			})
+		})
+	})
+
+
+	describe('When requesting /app as myrole user', function() {
+		it('should redirect to /myrole_start/1', function(done) {
+			browser.visit(base + '/session/destroy', function(err) {
+				browser.success.should.be.ok
+
+				browser.visit(base + '/app', function(err) {
+					browser.success.should.be.ok	
+					browser.text('h1').should.eql('login')
+				  	browser.
+				    	fill("username", "anders.larsson@apa.com").
+				    	fill("password", "password").
+				    	pressButton("login", function() {
+							browser.success.should.be.ok;
+							browser.text('h1').should.eql('otherresource');
+							done();
+						})
 				})
 			})
 		})

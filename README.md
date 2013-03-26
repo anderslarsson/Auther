@@ -51,7 +51,12 @@ After authentication all accessible resources are loaded for user (load_role).
 						
 				cb(null)
 			})
-		}	
+		}, 
+		indexRoute: {
+			route: '/app', 
+			myrole: '/otherresource/:id'
+		} 
+	
 	})
 
 ## Authentication
@@ -60,7 +65,16 @@ After authentication all accessible resources are loaded for user (load_role).
 
 ## Authorization	
 
+For each role in your application, implament a load_XXX function. First argument is the user object created in the
+authentication phase. Populate the user.AOHash for each of the resource types.
 
+## Index route
+
+The indexRoute parameter gives you the possibility to redirect user to different pages on a single route. That route
+is defined in the route attribute. For each role in the application add where to redirect. 
+
+You can also give a parameter in the route, :parameter. The parameter will be looked up in the user.AOHash and the first 
+resource will be substituted. 
 	
 ## View helpers
 

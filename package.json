@@ -2,7 +2,7 @@
   "author": "Anders Larsson <anders.larsson.funkis@gmail.com>",
   "name": "auther",
   "description": "(Auth)entification and (Auth)orization middleware for express.js",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "homepage": "https://github.com/anderslarsson/auther",
   "repository": {
     "type": "git",
