@@ -43,7 +43,8 @@ describe('Auther test suite', function() {
 			}, 
 			indexRoute: {
 				route: '/app', 
-				myrole: '/otherresource/:id'
+				myrole: '/otherresource/:id', 
+				sysadmin: '/myresource'
 			}, 
 			afterLogoutRoute: '/afterlogout'
 		})	
@@ -184,7 +185,7 @@ describe('Auther test suite', function() {
 
 
 	describe('When requesting /app as myrole user', function() {
-		it('should redirect to /myrole_start/1', function(done) {
+		it('should redirect to /otherresource/1', function(done) {
 			browser.visit(base + '/session/destroy', function(err) {
 				browser.success.should.be.ok
 
@@ -197,6 +198,27 @@ describe('Auther test suite', function() {
 				    	pressButton("login", function() {
 							browser.success.should.be.ok;
 							browser.text('h1').should.eql('otherresource');
+							done();
+						})
+				})
+			})
+		})
+	})
+
+	describe('When requesting /app as sysadmin user', function() {
+		it('should redirect to /resource', function(done) {
+			browser.visit(base + '/session/destroy', function(err) {
+				browser.success.should.be.ok
+
+				browser.visit(base + '/app', function(err) {
+					browser.success.should.be.ok	
+					browser.text('h1').should.eql('login')
+				  	browser.
+				    	fill("username", "sysadmin").
+				    	fill("password", "password").
+				    	pressButton("login", function() {
+							browser.success.should.be.ok;
+							browser.text('h1').should.eql('myresource');
 							done();
 						})
 				})
