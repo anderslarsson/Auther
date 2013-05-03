@@ -2,7 +2,7 @@
   "author": "Anders Larsson <anders.larsson.funkis@gmail.com>",
   "name": "auther",
   "description": "(Auth)entification and (Auth)orization middleware for express.js",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "homepage": "https://github.com/anderslarsson/auther",
   "repository": {
     "type": "git",
@@ -13,7 +13,7 @@
     "test": "./node_modules/mocha/bin/mocha --reporter spec ./test/auther.test.js"
   },
   "engines": {
-    "node": "0.8.x"
+    "node": ">=0.6"
   },
   "dependencies": {
   },
