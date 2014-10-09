@@ -48,8 +48,11 @@ Validates access to resources based on express route parameters.
 	}
 
 
-## Authorization	
+## New objects strategy
 
-For each role in your application, implament a load_XXX function. First argument is the user object created in the
-authentication phase. Populate the user.AOHash for each of the resource types.
+Normally the user is stored in session together with all allowed resources. What if a new resource is created after the user was logged in? 
+If Auther fails to grant access to a resource, it will redo the initialization and all allowed resources, including new ones, will be loaded and 
+a new check is done. If that second check fails a 403 is returned. 	
+
+
 
